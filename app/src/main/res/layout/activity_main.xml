@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    tools:context=".MainActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:paddingBottom="16dp"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
+        android:paddingTop="16dp">
+
+        <EditText
+            android:id="@+id/your_name_edittext"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Your Name"
+            android:inputType="textCapWords" />
+
+        <EditText
+            android:id="@+id/your_email_edittext"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Your Email"
+            android:inputType="textCapWords" />
+
+        <TextView
+            style="@style/textCss"
+            android:text="Please answer below questions" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="235dp"
+                    android:layout_marginTop="8dp"
+                    android:adjustViewBounds="true"
+                    android:scaleType="centerInside"
+                    android:src="@drawable/eric" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    style="@style/textCss"
+                    android:layout_marginLeft="8dp"
+                    android:text="1. Beside is Eric The King Cantona, one of the legend of Manchester United FC is come from which country" />
+
+                <RadioGroup
+                    android:id="@+id/radioGroup"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <RadioButton
+                        android:id="@+id/radio_sf"
+                        style="@style/buttonRadioGw"
+                        android:text="South Africa" />
+
+                    <RadioButton
+                        android:id="@+id/radio_my"
+                        style="@style/buttonRadioGw"
+                        android:text="Malaysia" />
+
+                    <RadioButton
+                        android:id="@+id/radio_fr"
+                        style="@style/buttonRadioGw"
+                        android:text="France" />
+
+                    <RadioButton
+                        android:id="@+id/radio_au"
+                        style="@style/buttonRadioGw"
+                        android:text="Australia" />
+
+                </RadioGroup>
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                style="@style/textCss"
+                android:text="2. Jose Mourinho, is the great coach which have won Champion league with below team, select minimum 2 team?" />
+
+            <CheckBox
+                android:id="@+id/q2_mu"
+                style="@style/buttonRadioGw"
+                android:text="Chelsea" />
+
+            <CheckBox
+                android:id="@+id/q2_porto"
+                style="@style/buttonRadioGw"
+                android:text="FC Porto" />
+
+            <CheckBox
+                android:id="@+id/q2_inter"
+                style="@style/buttonRadioGw"
+                android:text="Inter Milan" />
+
+            <CheckBox
+                android:id="@+id/q2_rm"
+                style="@style/buttonRadioGw"
+                android:text="Real Madrid" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                style="@style/textCss"
+                android:text="3. Lionel Messi is the great player from which country ?" />
+
+            <EditText
+                android:id="@+id/messi_argentina"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:hint="Country name"
+                android:inputType="textCapWords" />
+
+            <TextView
+                style="@style/textCss"
+                android:text="4. What is jersey number of Cristiano Ronaldo in Real Madrid FC ?" />
+
+            <EditText
+                android:id="@+id/cr7_realMadrid"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:hint="Jersey Number"
+                android:inputType="number" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <CheckBox
+                android:id="@+id/send_email_checkbox"
+                style="@style/buttonRadioGw"
+                android:text="Send result to email" />
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="16dp"
+                android:textColor="@android:color/black"
+                android:text="Submit"
+                android:onClick="submitQuiz"/>
+
+            <TextView
+                android:id="@+id/id_quiz_result_textview"
+                style="@style/textCss"
+                android:text="Result : " />
+        </LinearLayout>
+
+    </LinearLayout>
+</ScrollView>
