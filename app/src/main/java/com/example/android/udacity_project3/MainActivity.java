@@ -85,7 +85,6 @@ public class MainActivity extends AppCompatActivity {
         return quizResult;
     }
 
-
     /*
     * Submit quiz result handler
     */
@@ -115,8 +114,7 @@ public class MainActivity extends AppCompatActivity {
         } else {
             iSendMail = false;
         }
-
-
+        
         /*
         * show answer from question 1
         * This is correct answer for Question 1
