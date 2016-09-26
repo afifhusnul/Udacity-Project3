@@ -78,17 +78,8 @@ public class MainActivity extends AppCompatActivity {
         }
 
         // Question 2 --> Add point only if answer is Porto & Inter Milan
-        if (addChelsea) {
-            totalScore = totalScore+0; // if Chelsea checked no Score
-        }
-        if (addInter) {
-            totalScore = totalScore+10;
-        }
-        if (addPorto) {
-            totalScore = totalScore+10;
-        }
-        if (addReal) {
-            totalScore = totalScore+0;  // if Real Madrid checked no Score
+        if(!addChelsea && addInter && addPorto && !addReal){
+            totalScore = totalScore + 20;
         }
         // Question 3 --> Add point only if answer is ARGENTINA
         if (addArgentina) {
