@@ -158,16 +158,6 @@ public class MainActivity extends AppCompatActivity {
 
         CheckBox pakaiInter = (CheckBox) findViewById(R.id.q2_inter);
         boolean iInter = pakaiInter.isChecked();
-//        CheckBox pakaiChelsea = (CheckBox) findViewById(R.id.q2_chelsea);
-//        boolean iChelsea = pakaiChelsea.isChecked();
-
-//        CheckBox pakaiMadrid = (CheckBox) findViewById(R.id.q2_rm);
-//        boolean iMadrid = pakaiMadrid.isChecked();
-
-//        if(iPorto && iInter && !iChelsea && !iMadrid){
-//            //user get's a point
-//            totalScore = totalScore + 20;
-//        }
 
         /*
         * Question 3
