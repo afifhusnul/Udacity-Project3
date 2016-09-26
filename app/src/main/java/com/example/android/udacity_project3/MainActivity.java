@@ -72,14 +72,14 @@ public class MainActivity extends AppCompatActivity {
     * Calculate the score
     */
     private int calculatePoint(boolean addFrance, boolean addChelsea, boolean addPorto, boolean addInter, boolean addReal, boolean addArgentina, boolean addCr7){
-        // Add point only if answer is FRANCE
+        // Question 1 --> Add point only if answer is FRANCE
         if (addFrance) {
             totalScore = totalScore +25;
         }
 
-        // Add point only if answer is Porto & Inter Milan
+        // Question 2 --> Add point only if answer is Porto & Inter Milan
         if (addChelsea) {
-            totalScore = totalScore+0;
+            totalScore = totalScore+0; // if Real Madrid checked no Score
         }
         if (addInter) {
             totalScore = totalScore+10;
@@ -88,13 +88,13 @@ public class MainActivity extends AppCompatActivity {
             totalScore = totalScore+10;
         }
         if (addReal) {
-            totalScore = totalScore+0;
+            totalScore = totalScore+0;  // if Real Madrid checked no Score
         }
-        // Add point only if answer is ARGENTINA
+        // Question 3 --> Add point only if answer is ARGENTINA
         if (addArgentina) {
             totalScore = totalScore+30;
         }
-        // Add point only if answer is 7
+        // Question 4 --> Add point only if answer is 7
         if (addCr7) {
             totalScore = totalScore+25;
         }
@@ -161,6 +161,7 @@ public class MainActivity extends AppCompatActivity {
          /*
         * show answer from question 2
         * These are correct answer for Question 2 --> Porto & Inter Milan
+        * Calculation is in calculatePoint function
         */
 
         //Chelsea
