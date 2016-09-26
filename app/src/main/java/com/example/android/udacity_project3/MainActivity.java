@@ -26,6 +26,8 @@ public class MainActivity extends AppCompatActivity {
     boolean iCheckName = false;
     boolean iCheckEmail = false;
     boolean iSendMail = false;
+    int totalScore=0;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -66,21 +68,44 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    /*
+    * Calculate the score
+    */
+    private int calculatePoint(boolean addFrance, boolean addPorto, boolean addInter, boolean addArgentina, boolean addCr7){
+        if (addFrance) {
+            totalScore = totalScore +25;
+        }
+        if (addInter) {
+            totalScore = totalScore+10;
+        }
+        if (addPorto) {
+            totalScore = totalScore+10;
+        }
+        if (addArgentina) {
+            totalScore = totalScore+30;
+        }
+        if (addCr7) {
+            totalScore = totalScore+25;
+        }
+        return totalScore;
+    }
+
     /**
      * Summary quiz result
      *
      * @param fullName --> Name of participant
      * @param idEmail  --> Email of participant
      */
-    private String resultSummary(String fullName, String idEmail, boolean hasFrance, boolean hasPorto, boolean hasInter, boolean hasArgentina, boolean hasCr7) {
+    private String resultSummary(String fullName, String idEmail, boolean hasFrance, boolean hasPorto, boolean hasInter, boolean hasArgentina, boolean hasCr7, int hasScore) {
         String quizResult = "Quiz result ";
         quizResult += "\n---------------- ";
         quizResult += "\nName : " + fullName;
         quizResult += "\nEmail : " + idEmail;
-        quizResult += "\nQuestion 1 : " + hasFrance + "  -- Correct answer is : France";
-        quizResult += "\nQuestion 2 : " + hasPorto + " & " + hasInter + "  -- Correct answer is : Porto & Inter Milan";
-        quizResult += "\nQuestion 3 : " + hasArgentina + "  -- Correct answer is : Argentina";
-        quizResult += "\nQuestion 4 : " + hasCr7 + "  -- Correct answer is : 7";
+        quizResult += "\nQuestion 1 : " + hasFrance + "  -- Correct answer is : France (25)";
+        quizResult += "\nQuestion 2 : " + hasPorto + " & " + hasInter + "  -- Correct answer is : Porto (10) & Inter Milan(10)";
+        quizResult += "\nQuestion 3 : " + hasArgentina + "  -- Correct answer is : Argentina (30)";
+        quizResult += "\nQuestion 4 : " + hasCr7 + "  -- Correct answer is : 7 (25)";
+        quizResult += "\nYour score is : " + hasScore; // (A) As per review add score for all quiz result
         quizResult += "\nThank You";
         return quizResult;
     }
@@ -114,7 +139,7 @@ public class MainActivity extends AppCompatActivity {
         } else {
             iSendMail = false;
         }
-        
+
         /*
         * show answer from question 1
         * This is correct answer for Question 1
@@ -126,11 +151,23 @@ public class MainActivity extends AppCompatActivity {
         * show answer from question 2
         * These are correct answer for Question 2 Porto & Inter Milan
         */
+
+
         CheckBox pakaiPorto = (CheckBox) findViewById(R.id.q2_porto);
         boolean iPorto = pakaiPorto.isChecked();
 
         CheckBox pakaiInter = (CheckBox) findViewById(R.id.q2_inter);
         boolean iInter = pakaiInter.isChecked();
+//        CheckBox pakaiChelsea = (CheckBox) findViewById(R.id.q2_chelsea);
+//        boolean iChelsea = pakaiChelsea.isChecked();
+
+//        CheckBox pakaiMadrid = (CheckBox) findViewById(R.id.q2_rm);
+//        boolean iMadrid = pakaiMadrid.isChecked();
+
+//        if(iPorto && iInter && !iChelsea && !iMadrid){
+//            //user get's a point
+//            totalScore = totalScore + 20;
+//        }
 
         /*
         * Question 3
@@ -138,7 +175,7 @@ public class MainActivity extends AppCompatActivity {
         String pArgentina = new String("argentina");
 
         EditText textArgentina = (EditText) findViewById(R.id.messi_argentina);
-        String pArg = textArgentina.getText().toString();
+        String pArg = textArgentina.getText().toString().trim();  // as per suggestion use trim in this expression
         boolean iArgentina = pArgentina.equalsIgnoreCase(pArg);
 
 
@@ -155,7 +192,8 @@ public class MainActivity extends AppCompatActivity {
         * Final check before submission
          */
         if (iCheckName == true && iCheckEmail == true) {
-            String displayResult = resultSummary(checkName, pEmail, iFrance, iPorto, iInter, iArgentina, iCr7);
+            int thisScore = calculatePoint(iFrance,iPorto,iInter,iArgentina,iCr7);
+            String displayResult = resultSummary(checkName, pEmail, iFrance, iPorto, iInter, iArgentina, iCr7, thisScore);
             if (iSendMail == true) {
                 Intent intent = new Intent(Intent.ACTION_SENDTO);
                 intent.setData(Uri.parse("mailto:"+pEmail)); // only email apps should handle this
@@ -166,6 +204,9 @@ public class MainActivity extends AppCompatActivity {
                 }
             } else {
                 displayMessage(displayResult);
+                Toast.makeText(this, displayResult, Toast.LENGTH_SHORT).show(); // (C) As per review add score for all quiz result
+                // Reset score to 0 after submit;
+                totalScore=0;
             }
         } else {
             return;

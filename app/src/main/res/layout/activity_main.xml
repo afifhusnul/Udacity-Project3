@@ -31,7 +31,7 @@
 
         <TextView
             style="@style/textCss"
-            android:text="Please answer below questions" />
+            android:text="@string/header_text" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -104,7 +104,7 @@
                 android:text="2. Jose Mourinho, is the great coach which have won Champion league with below team, select minimum 2 team?" />
 
             <CheckBox
-                android:id="@+id/q2_mu"
+                android:id="@+id/q2_chelsea"
                 style="@style/buttonRadioGw"
                 android:text="Chelsea" />
 
