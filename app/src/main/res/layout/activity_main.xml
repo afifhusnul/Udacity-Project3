@@ -101,7 +101,7 @@
 
             <TextView
                 style="@style/textCss"
-                android:text="2. Jose Mourinho, is the great coach which have won Champion league with below team, select minimum 2 team?" />
+                android:text="2. Jose Mourinho, is the great coach which have won Champion league with below team, select 2 team?" />
 
             <CheckBox
                 android:id="@+id/q2_chelsea"
